@@ -1,3 +1,4 @@
+from builtins import object
 import time
 import traceback
 from junit_xml import TestCase, TestSuite
@@ -10,7 +11,7 @@ def xunit_dump(suites):
     return TestSuite.to_xml_string(suites)
 
 
-class xunit:
+class xunit(object):
     def __init__(self, name, classname):
         self._name = name
         self._classname = classname
