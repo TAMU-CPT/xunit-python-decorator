@@ -1,0 +1,20 @@
+language: python
+python:
+- '2.7'
+- '3.5'
+install: pip install -r requirements.txt
+script:
+- pip install -U flake8
+- pip install -r requirements.txt
+- python setup.py install
+- flake8 xunit_wrapper
+deploy:
+- provider: pypi
+  user: erasche
+  password:
+    secure: PjtJXEgtAjPKU/dqlodk/PxR9V6izRc7Ku7Q0jJG8eQcr+u3tGTKWtGSO9ULclfEzRrZmC4ndgJMklV6TWpT9sRJon9+itOrBXxiQMHoqfZ3tRw7Iqgo4sRoTQSu810DYqgWTCTYZLkPGiHjeinAfl9tUQ2jqyhulUPOdssM2UQ=
+  on:
+    tags: true
+    all_branches: true
+    distributions: sdist bdist_wheel
+    repo: TAMU-CPT/xunit-python-decorator

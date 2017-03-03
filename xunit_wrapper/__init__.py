@@ -1,4 +1,5 @@
 from builtins import object
+import sys
 import time
 import traceback
 from junit_xml import TestCase, TestSuite
@@ -6,6 +7,7 @@ from junit_xml import TestCase, TestSuite
 
 def xunit_suite(name, cases):
     return TestSuite(name, [case._tc for case in cases])
+
 
 def xunit_dump(suites):
     return TestSuite.to_xml_string(suites)
@@ -23,10 +25,13 @@ class xunit(object):
 
     def __exit__(self, exc_type, exc_value, exc_traceback):
         self._end = time.time()
-        tc = TestCase(self._name, self._classname, self._end - self._start, '', '')
+        tc = TestCase(self._name, self._classname,
+                      self._end - self._start, '', '')
         if exc_type:
 
-            tc.add_failure_info(message=exc_value, output='\n'.join(traceback.format_exception(exc_type, exc_value, exc_traceback)))
+            tc.add_failure_info(message=exc_value, output='\n'.join(
+                traceback.format_exception(exc_type, exc_value,
+                                           exc_traceback)))
         self._tc = tc
 
         # If an exception is supplied, and the method wishes to suppress the
