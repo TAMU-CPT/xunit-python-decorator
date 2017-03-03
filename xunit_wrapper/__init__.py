@@ -10,7 +10,7 @@ def xunit_dump(suites):
     return TestSuite.to_xml_string(suites)
 
 
-class xunit(object):
+class xunit:
     def __init__(self, name, classname):
         self._name = name
         self._classname = classname
@@ -25,7 +25,7 @@ class xunit(object):
         tc = TestCase(self._name, self._classname, self._end - self._start, '', '')
         if exc_type:
 
-            tc.add_failure_info(message=str(exc_value), output='\n'.join(traceback.format_exception(exc_type, exc_value, exc_traceback)))
+            tc.add_failure_info(message=exc_value, output='\n'.join(traceback.format_exception(exc_type, exc_value, exc_traceback)))
         self._tc = tc
 
         # If an exception is supplied, and the method wishes to suppress the
@@ -37,13 +37,13 @@ class xunit(object):
 
 if __name__ == '__main__':
     with xunit('apollo', 'test.pass') as tc1:
-        1 / 1
+        pass
 
     with xunit('apollo', 'test.fail') as tc2:
-        1 / 0
+        raise Exception("bad things happened")
 
     with xunit('apollo', 'test.second') as tc3:
         time.sleep(1)
 
     ts = xunit_suite('Context management tests', [tc1, tc2, tc3])
-    print(xunit_dump([ts]))
+    sys.stdout.write(xunit_dump([ts]))
