@@ -3,6 +3,8 @@ import sys
 import time
 import traceback
 from junit_xml import TestCase, TestSuite
+import logging
+logging.basicConfig(format='[%(asctime)s][%(lineno)d][%(module)s] %(message)s', level=logging.INFO)
 
 
 def xunit_suite(name, cases):
@@ -28,6 +30,7 @@ class xunit(object):
         tc = TestCase(self._name, self._classname,
                       self._end - self._start, '', '')
         if exc_type:
+            logging.warn(exc_value)
 
             tc.add_failure_info(message=exc_value, output='\n'.join(
                 traceback.format_exception(exc_type, exc_value,

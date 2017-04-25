@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name="xunit_wrapper",
-    version='0.9',
+    version='0.10',
     description='Wrap python functions with a decorator to handle building XUnit reports',
     author='E Rasche',
     author_email='esr@tamu.edu',
