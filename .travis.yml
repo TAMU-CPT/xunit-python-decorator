@@ -10,15 +10,11 @@ script:
 - python setup.py test
 - flake8 xunit_wrapper
 deploy:
-  matrix:
-  - provider: pypi
-    user: erasche
-    password:
-      secure: PjtJXEgtAjPKU/dqlodk/PxR9V6izRc7Ku7Q0jJG8eQcr+u3tGTKWtGSO9ULclfEzRrZmC4ndgJMklV6TWpT9sRJon9+itOrBXxiQMHoqfZ3tRw7Iqgo4sRoTQSu810DYqgWTCTYZLkPGiHjeinAfl9tUQ2jqyhulUPOdssM2UQ=
-    on:
-      tags: true
-      all_branches: true
-      distributions: sdist bdist_wheel
-      repo: TAMU-CPT/xunit-python-decorator
+  provider: pypi
+  user: erasche
   password:
-    secure: GQIKv1ubv9MUwq5oMT7NRWt7Yldfu9Rb+SVsOyfnsAuVZwyca0vmE0tKnIo/8CLG0ZNauPsTyA7H9KmbRuzwrvkddRbyKnc7GRRwU6crm5dqvtqMjEqcpQO0lC4r1L2PwUuLx1JuefkL88i8AAjkrOEC8TUaKHzyRp+KzwxyZZo4jo45WbAMJRBSNvlsBNgjxA6ppdZZYFzksI30+sU1V0Yi7X4/3tD1omnRt4hoSNUs5H+DW9FkMj+01SbbbKnSlTqOkwgMabZST/KGn5l6bRxFdKb2DVYkMi9Gl+5lPh9JrvZGZfd1gT2eeb/sr8iD4nR3TCiFvYrLaTAYtOSsSZEkDsJG6qiwkvGAVUp7GwiHJbsqtDAaMNjLNCU9wtB3M5lVG7f5xu8rS8txJBxxuqzet4mX0S2wLeZTWBiGWqPFQkWHAvT0J8ytICkWV0i1+bfk81C8roRbXOnp4IUkmSbBzB3nr5iPEhzzeoDZedORh/JAUxJLuJ6y9BkfLDJ9EX8hmk+Tq2C7NIorcM4mDVpds571Ks63BMVfMkdzizbIV0b4Xm7IYxGW6nJh8+f87ilwgH3JCNlgOg2eQMv2GKELQb/Gf+xjpKzgiX/y70sn2Z6wE6rFSh4eDO4PbqXYibzGFOXRWJ5TFd7wwPkj24ODOdYWUYGYPZt96dziRZc=
+    secure: UlAoPqsL8aVvGqCZbQGBQLs+OM2apweKLBR0o9RaiuF6yIvxubqOXB0VdzOCwkNMv8xigDvjz1QoWxxl6vIj13/aqeKD026X5ybNVbW+RaL8QzOJWwEpa3OphpGbM3lfCyZwHzamy+sY3Hhsrc7C+IHUuoZGGF1FX+feXb9n4csQmrIenU3X3S7jNbNRz/D831kr04CwROmJEqdZwjCp7cmq6kzrw3MhOcCPa/K4eI4sgvYt3HqeXr8TYtAkq7VYD+ljExBqs9nfORQbo3Df/PtKF0qKrHw2QaZ7goLKrwPI5xkSXoWO0U7D8Tb35lHhWnxXAZSajFfUCu/M6HTTZAhTwt9eMOOhSnXFD+tHzi+yi1hqQk5sPSv/0jKWyclxDydXIpkr3TEG5+4bcR8G3m9GU2Quvl+hJ3NCNpd69OyBQ4C7dIEKiT1kCecSyizgBaxEJ02PBiZwGymP8rMrxlASesfJd3MYIOAfkrMaPNwgGJGlm1fCNXVCFhMm3VP8AYrRZ4miD3SLjobIYTopaLX7rBf0NuADilj6nlRpOG0+kWuWU9ZaxI3kchU9eKScDqCV1wYU3tNMC7fzBPWPCDrH127LqJUW91IG7hXe09t8AVqffVWf8XWlwCCo7Gm3QLavUBm3pArhz6+HzjFxn/PRL6SRz87NoAe1e2VeYzY=
+  on:
+    tags: true
+    distributions: sdist bdist_wheel
+    repo: TAMU-CPT/xunit-python-decorator
