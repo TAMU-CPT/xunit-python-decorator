@@ -4,7 +4,7 @@ import time
 import traceback
 from junit_xml import TestCase, TestSuite
 import logging
-logging.basicConfig(format='[%(asctime)s][%(lineno)d][%(module)s] %(message)s', level=logging.INFO)
+logging.basicConfig(level=logging.INFO)
 
 
 def xunit_suite(name, cases):
