@@ -8,7 +8,7 @@ setup(
     author='E Rasche',
     author_email='esr@tamu.edu',
     license='GPL-3.0',
-    install_requires=['junit-xml==1.7'],
+    install_requires=['junit-xml==1.7', 'future'],
     url='https://github.com/TAMU-CPT/xunit-python-decorator',
     packages=["xunit_wrapper"],
     classifiers=[
